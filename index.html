@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#e50914" />
+    <title>Ahorcado: Stranger Things</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title">Strange Hangman</h1>
+      <ul class="lights" id="lights">
+        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+      </ul>
+    </header>
+
+    <main class="main">
+      <section class="info">
+        <div class="badge">Intentos: <span id="attempts-left">—</span></div>
+      </section>
+
+      <section class="stage">
+        <svg class="hangman" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Ahorcado">
+          <g class="gallows">
+            <line x1="20" y1="180" x2="180" y2="180" />
+            <line x1="50" y1="180" x2="50" y2="20" />
+            <line x1="50" y1="20" x2="120" y2="20" />
+            <line x1="120" y1="20" x2="120" y2="45" />
+          </g>
+          <g class="man">
+            <circle id="hm-head" cx="120" cy="60" r="15" class="part hidden" />
+            <line id="hm-body" x1="120" y1="75" x2="120" y2="115" class="part hidden" />
+            <line id="hm-arm-l" x1="120" y1="90" x2="100" y2="105" class="part hidden" />
+            <line id="hm-arm-r" x1="120" y1="90" x2="140" y2="105" class="part hidden" />
+            <line id="hm-leg-l" x1="120" y1="115" x2="105" y2="140" class="part hidden" />
+            <line id="hm-leg-r" x1="120" y1="115" x2="135" y2="140" class="part hidden" />
+          </g>
+        </svg>
+      </section>
+
+      <section id="word" class="word" aria-live="polite"></section>
+
+      <section id="keyboard" class="keyboard" aria-label="Teclado"></section>
+
+      <section class="controls">
+        <button id="btn-new" class="btn">Nueva palabra</button>
+      </section>
+    </main>
+
+    <div id="setup-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="setup-title">
+      <div class="modal-content">
+        <h2 id="setup-title">Palabra secreta</h2>
+        <p>Escribe la palabra o frase para que el otro jugador adivine.</p>
+        <input id="secret-input" type="password" class="input" placeholder="Ingresa aquí" />
+        <label class="row">
+          <input id="hide-toggle" type="checkbox" checked /> Ocultar palabra al escribir
+        </label>
+        <div class="controls">
+          <button id="btn-start" class="btn" type="button">Comenzar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <h2 id="modal-title"></h2>
+        <p id="modal-body"></p>
+        <button id="btn-restart" class="btn" type="button">Jugar otra vez</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <small>Homenaje fan a la serie  -m0nge</small>
+    </footer>
+  </body>
+  </html>
+
